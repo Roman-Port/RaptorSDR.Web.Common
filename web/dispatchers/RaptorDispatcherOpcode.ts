@@ -1,4 +1,6 @@
+import { RaptorBaseEndpoint } from "../../../src/framework/web/RaptorBaseEndpoint";
 import RaptorEventDispaptcher from "../../RaptorEventDispatcher";
+import RaptorUtil from "../../util/RaptorUtil";
 import IRaptorEndpoint from "../IRaptorEndpoint";
 
 export default class RaptorDispatcherOpcode {
@@ -11,7 +13,7 @@ export default class RaptorDispatcherOpcode {
     private parent: IRaptorEndpoint;
     private subscriptions: RaptorDispatcherOpcode_Subscription[];
 
-    CreateSubscription(opcode: string) {
+    CreateSubscription(opcode: string): IRaptorEndpoint {
         var sub = new RaptorDispatcherOpcode_Subscription(this.parent, opcode);
         this.subscriptions.push(sub);
         return sub;
@@ -19,12 +21,12 @@ export default class RaptorDispatcherOpcode {
 
 }
 
-class RaptorDispatcherOpcode_Subscription implements IRaptorEndpoint {
+class RaptorDispatcherOpcode_Subscription extends RaptorBaseEndpoint {
 
     constructor(parent: IRaptorEndpoint, opcode: string) {
+        super();
         this.parent = parent;
         this.opcode = opcode;
-        this.OnMessage = new RaptorEventDispaptcher<any>();
         parent.OnMessage.Bind((message: any) => {
             if (message["op"] == this.opcode) {
                 this.OnMessage.Fire(message["d"]);
@@ -38,8 +40,6 @@ class RaptorDispatcherOpcode_Subscription implements IRaptorEndpoint {
             "d": message
         });
     }
-
-    OnMessage: RaptorEventDispaptcher<any>;
 
     private parent: IRaptorEndpoint;
     private opcode: string;
