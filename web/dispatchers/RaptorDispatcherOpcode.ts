@@ -1,7 +1,7 @@
-import { RaptorBaseEndpoint } from "../../../src/framework/web/RaptorBaseEndpoint";
 import RaptorEventDispaptcher from "../../RaptorEventDispatcher";
 import RaptorUtil from "../../util/RaptorUtil";
 import IRaptorEndpoint from "../IRaptorEndpoint";
+import { RaptorBaseEndpoint } from "../RaptorBaseEndpoint";
 
 export default class RaptorDispatcherOpcode {
 
