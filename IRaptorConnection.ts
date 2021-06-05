@@ -1,5 +1,6 @@
 import IRaptorRadio from "./radio/IRaptorRadio";
 import IRaptorVFO from "./radio/IRaptorVFO";
+import { RaptorLogLevel } from "./RaptorLogLevel";
 import IRaptorMenu from "./ui/menu/IRaptorMenu";
 import RaptorMenuBuilder from "./ui/menu/RaptorMenuBuilder";
 import IRaptorStream from "./web/IRaptorStream";
@@ -14,6 +15,8 @@ export default interface IRaptorConnection {
     GetStream(id: string): IRaptorStream;
 
     ShowMenu(builder: RaptorMenuBuilder): IRaptorMenu;
+
+    Log(level: RaptorLogLevel, topic: string, message: string): void;
 
     Radio: IRaptorRadio;
     VFO: IRaptorVFO;

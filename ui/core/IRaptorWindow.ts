@@ -8,6 +8,7 @@ export default interface IRaptorWindow {
     GetMaxSize(): RaptorSize;
 
     CreateWindow(window: HTMLElement): void;
+    ResizeWindow(width: number, height: number): void;
     DestoryWindow(): void;
 
 }
