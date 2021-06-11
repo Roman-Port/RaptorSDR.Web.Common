@@ -2,8 +2,8 @@ export default interface IRaptorPluginAudio {
 
     GetName(): string;
 
-    Start(): void;
+    Start(): Promise<void>;
     SetVolume(volume: number): void;
-    Stop(): void;
+    Stop(): Promise<void>;
 
 }

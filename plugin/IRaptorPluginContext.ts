@@ -4,6 +4,7 @@ import RaptorMenuBuilder from "../ui/menu/RaptorMenuBuilder";
 import IRaptorPluginAudio from "./components/IRaptorPluginAudio";
 import IRaptorPluginPackage from "./IRaptorPluginPackage";
 import IRaptorPluginRegisteredWindow from "./IRaptorPluginRegisteredWindow";
+import IRaptorWindowClassInfo from "./window/IRaptorWindowClassInfo";
 
 export default interface IRaptorPluginContext {
     conn: IRaptorConnection;
@@ -14,7 +15,7 @@ export default interface IRaptorPluginContext {
 
     GetPackage(id: string): IRaptorPluginPackage;
 
-    RegisterWindowClass(displayName: string, create: (info: any) => IRaptorWindow): IRaptorPluginRegisteredWindow;
+    RegisterWindowClass(info: IRaptorWindowClassInfo): IRaptorPluginRegisteredWindow;
     RegisterComponentAudio(audio: IRaptorPluginAudio): void;
 
     ShowMenu(menu: RaptorMenuBuilder): void;

@@ -1,8 +1,9 @@
 import IRaptorPluginRegisteredWindowInstance from "./IRaptorPluginRegisteredWindowInstance";
+import IRaptorWindowInstanceInfo from "./window/IRaptorWindowInstanceInfo";
 
 export default interface IRaptorPluginRegisteredWindow {
 
     GetName(): string;
-    CreateInstance(name: string, info: any): IRaptorPluginRegisteredWindowInstance;
+    RegisterInstance(info: IRaptorWindowInstanceInfo): IRaptorPluginRegisteredWindowInstance;
 
 }

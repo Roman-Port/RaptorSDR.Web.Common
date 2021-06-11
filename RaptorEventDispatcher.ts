@@ -4,7 +4,7 @@ export default class RaptorEventDispaptcher<T> {
         this.subscriptions = [];
     }
 
-    private subscriptions: ((payload: T) => any)[];
+    protected subscriptions: ((payload: T) => any)[];
 
     Bind(callback: (payload: T) => any) {
         this.subscriptions.push(callback);
