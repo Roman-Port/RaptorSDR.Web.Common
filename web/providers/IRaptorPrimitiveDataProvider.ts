@@ -1,11 +1,6 @@
-import RaptorEventDispaptcher from "../../RaptorEventDispatcher";
+import IRaptorConfigurable from "../../misc/IRaptorConfigurable";
 import IRaptorDataProvider from "../IRaptorDataProvider";
 
-export default interface IRaptorPrimitiveDataProvider<T> extends IRaptorDataProvider {
-
-	GetValue(): T;
-	SetValue(value: T): Promise<any>;
-
-	OnChanged: RaptorEventDispaptcher<T>;
+export default interface IRaptorPrimitiveDataProvider<T> extends IRaptorDataProvider, IRaptorConfigurable<T> {
 
 }

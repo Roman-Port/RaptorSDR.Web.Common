@@ -16,6 +16,9 @@ export default interface IRaptorConnection {
 
     ShowMenu(builder: RaptorMenuBuilder): IRaptorMenu;
 
+    CreateFileSaveDialog(title: string): Promise<string>;
+    CreateFileOpenDialog(title: string): Promise<string>;
+
     Log(level: RaptorLogLevel, topic: string, message: string): void;
 
     Radio: IRaptorRadio;
