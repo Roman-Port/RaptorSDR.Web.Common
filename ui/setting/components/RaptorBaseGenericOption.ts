@@ -1,5 +1,5 @@
-import RaptorUiUtil from "../../../../src/framework/ui/RaptorUiUtil";
 import IRaptorConfigurable from "../../../misc/IRaptorConfigurable";
+import RaptorUiUtil from "../../../util/RaptorUiUtil";
 import IRaptorSettingsComponent from "../IRaptorSettingsComponent";
 
 export default abstract class RaptorBaseGenericOption<T> implements IRaptorSettingsComponent {

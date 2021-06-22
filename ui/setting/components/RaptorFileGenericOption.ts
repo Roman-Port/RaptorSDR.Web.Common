@@ -1,6 +1,6 @@
-import RaptorUiUtil from "../../../../src/framework/ui/RaptorUiUtil";
 import IRaptorConnection from "../../../IRaptorConnection";
 import IRaptorConfigurable from "../../../misc/IRaptorConfigurable";
+import RaptorUiUtil from "../../../util/RaptorUiUtil";
 import RaptorBaseGenericOption from "./RaptorBaseGenericOption";
 
 export default class RaptorNumberGenericOption extends RaptorBaseGenericOption<string> {
