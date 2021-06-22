@@ -1,4 +1,5 @@
 import IRaptorWindow from "../../ui/core/IRaptorWindow";
+import IRaptorWindowContext from "../../ui/core/IRaptorWindowContext";
 import RaptorSize from "../../ui/RaptorSize";
 
 export default interface IRaptorWindowClassInfo {
@@ -9,6 +10,6 @@ export default interface IRaptorWindowClassInfo {
     sizeMax: RaptorSize,
     sizeDefault: RaptorSize,
     hideHeader: boolean,
-    createInstance: (info: any, persist: any) => IRaptorWindow;
+    createInstance: (data: IRaptorWindowContext) => IRaptorWindow;
 
 }
