@@ -4,6 +4,7 @@ import RaptorBooleanGenericOption from "./components/RaptorBooleanGenericOption"
 import RaptorFileGenericOption from "./components/RaptorFileGenericOption";
 import RaptorNumberGenericOption from "./components/RaptorNumberGenericOption";
 import RaptorOptionGenericOption from "./components/RaptorOptionGenericOption";
+import RaptorRangeGenericOption from "./components/RaptorRangeGenericOption";
 import IRaptorSettingsComponent from "./IRaptorSettingsComponent";
 import IRaptorSettingsRegion from "./IRaptorSettingsRegion";
 import { RaptorSettingsTab } from "./RaptorSettingsTab";
@@ -23,6 +24,11 @@ export default class RaptorSettingsRegionBuilder {
 
     AddOptionNumber(name: string, option: IRaptorConfigurable<number>, min: number, max: number): RaptorSettingsRegionBuilder {
         this.options.push(new RaptorNumberGenericOption(name, option, min, max));
+        return this;
+    }
+
+    AddOptionRange(name: string, option: IRaptorConfigurable<number>, min: number, max: number): RaptorSettingsRegionBuilder {
+        this.options.push(new RaptorRangeGenericOption(name, option, min, max));
         return this;
     }
 
