@@ -13,19 +13,28 @@ export default class RaptorRangeGenericOption extends RaptorBaseGenericOption<nu
     private min: number;
     private max: number;
 
-    protected BuildInput(): HTMLElement {
-        var input = RaptorUiUtil.CreateDom("input", "rsys_settings_goption_input").AddClass("rsys_settings_goption_base") as HTMLElement as HTMLInputElement;
+    protected BuildInput(parent: HTMLElement): IRaptorRangeGenericOption_Context {
+        var input = RaptorUiUtil.CreateDom("input", "rsys_settings_goption_input", parent).AddClass("rsys_settings_goption_base").AddClass("rsys_settings_goption_range") as HTMLElement as HTMLInputElement;
         input.type = "range";
         input.max = this.max.toString();
         input.min = this.min.toString();
-        input.addEventListener("change", () => {
+        input.addEventListener("input", () => {
             this.SetValue(parseFloat(input.value));
         });
-        return input;
+        return {
+            helper: RaptorUiUtil.CreateDom("div", "rsys_settings_goption_range_helper", parent),
+            input: input
+        };
     }
 
-    protected ValueChanged(input: HTMLElement, value: number): void {
-        (input as HTMLInputElement).value = value == null ? null : value.toString();
+    protected ValueChanged(input: IRaptorRangeGenericOption_Context, value: number): void {
+        input.input.value = value == null ? null : value.toString();
+        input.helper.innerText = value == null ? null : value.toString();
     }
 
+}
+
+interface IRaptorRangeGenericOption_Context {
+    input: HTMLInputElement;
+    helper: HTMLElement;
 }

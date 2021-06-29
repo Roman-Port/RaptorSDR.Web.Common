@@ -16,8 +16,8 @@ export default class RaptorNumberGenericOption extends RaptorBaseGenericOption<s
     private dialogTitle: string;
     private conn: IRaptorConnection;
 
-    protected BuildInput(): HTMLElement {
-        var btn = RaptorUiUtil.CreateDom("div", "rsys_settings_goption_file").AddClass("rsys_settings_goption_base");
+    protected BuildInput(parent: HTMLElement): HTMLElement {
+        var btn = RaptorUiUtil.CreateDom("div", "rsys_settings_goption_file", parent).AddClass("rsys_settings_goption_base");
         btn.innerText = "Browse...";
         btn.addEventListener("click", () => {
             //Create dialog

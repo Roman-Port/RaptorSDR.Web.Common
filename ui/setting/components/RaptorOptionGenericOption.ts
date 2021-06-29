@@ -11,8 +11,8 @@ export default class RaptorOptionGenericOption extends RaptorBaseGenericOption<s
 
     private values: { [displayName: string]: string };
 
-    protected BuildInput(): HTMLElement {
-        var input = RaptorUiUtil.CreateDom("select", "rsys_settings_goption_input").AddClass("rsys_settings_goption_base") as HTMLElement as HTMLSelectElement;
+    protected BuildInput(parent: HTMLElement): HTMLElement {
+        var input = RaptorUiUtil.CreateDom("select", "rsys_settings_goption_input", parent).AddClass("rsys_settings_goption_base") as HTMLElement as HTMLSelectElement;
         var keys = Object.keys(this.values);
         for (var i = 0; i < keys.length; i++) {
             var option = RaptorUiUtil.CreateDom("option", null, input) as HTMLElement as HTMLOptionElement;
