@@ -52,6 +52,11 @@ export default class RaptorSettingsRegionBuilder {
         return this;
     }
 
+    AddOptionCustom(option: IRaptorSettingsComponent): RaptorSettingsRegionBuilder {
+        this.options.push(option);
+        return this;
+    }
+
     Build(): IRaptorSettingsRegion {
         return {
             name: this.name,
