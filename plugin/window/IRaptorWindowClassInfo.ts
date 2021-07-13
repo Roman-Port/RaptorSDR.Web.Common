@@ -11,5 +11,6 @@ export default interface IRaptorWindowClassInfo {
     sizeDefault: RaptorSize,
     hideHeader: boolean,
     createInstance: (data: IRaptorWindowContext) => IRaptorWindow;
+    createDummy: (data: IRaptorWindowContext) => HTMLElement;
 
 }
