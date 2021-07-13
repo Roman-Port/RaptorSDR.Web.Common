@@ -1,5 +1,6 @@
 import IRaptorWindow from "../../ui/core/IRaptorWindow";
 import IRaptorWindowContext from "../../ui/core/IRaptorWindowContext";
+import IRaptorWindowInfo from "../../ui/core/IRaptorWindowInfo";
 import RaptorSize from "../../ui/RaptorSize";
 
 export default interface IRaptorWindowClassInfo {
@@ -11,6 +12,6 @@ export default interface IRaptorWindowClassInfo {
     sizeDefault: RaptorSize,
     hideHeader: boolean,
     createInstance: (data: IRaptorWindowContext) => IRaptorWindow;
-    createDummy: (data: IRaptorWindowContext) => HTMLElement;
+    createDummy: (info: IRaptorWindowInfo) => HTMLElement;
 
 }

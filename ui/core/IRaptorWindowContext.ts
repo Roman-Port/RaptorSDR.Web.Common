@@ -2,13 +2,11 @@ import IRaptorConnection from "../../IRaptorConnection";
 import IRaptorSettingsRegion from "../setting/IRaptorSettingsRegion";
 import RaptorSettingsRegionBuilder from "../setting/RaptorSettingsRegionBuilder";
 import { RaptorSettingsTab } from "../setting/RaptorSettingsTab";
+import IRaptorWindowInfo from "./IRaptorWindowInfo";
 
-export default interface IRaptorWindowContext {
+export default interface IRaptorWindowContext extends IRaptorWindowInfo {
 
     conn: IRaptorConnection;
-    id: string;
-
-    info: any;
     persist: any;
 
     CreateSettingsRegion(name: string, id: string): RaptorSettingsRegionBuilder; //Simply creates a new region but does not apply it
