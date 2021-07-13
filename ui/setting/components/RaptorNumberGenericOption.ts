@@ -13,8 +13,8 @@ export default class RaptorNumberGenericOption extends RaptorBaseGenericOption<n
     private min: number;
     private max: number;
 
-    protected BuildInput(): HTMLElement {
-        var input = RaptorUiUtil.CreateDom("input", "rsys_settings_goption_input").AddClass("rsys_settings_goption_base") as HTMLElement as HTMLInputElement;
+    protected BuildInput(parent: HTMLElement): HTMLElement {
+        var input = RaptorUiUtil.CreateDom("input", "rsys_settings_goption_input", parent).AddClass("rsys_settings_goption_base") as HTMLElement as HTMLInputElement;
         input.type = "number";
         input.max = this.max.toString();
         input.min = this.min.toString();

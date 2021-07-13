@@ -1,6 +1,7 @@
 import IRaptorConnection from "../IRaptorConnection";
 import IRaptorWindow from "../ui/core/IRaptorWindow";
 import RaptorMenuBuilder from "../ui/menu/RaptorMenuBuilder";
+import IRaptorEndpoint from "../web/IRaptorEndpoint";
 import IRaptorPluginAudio from "./components/IRaptorPluginAudio";
 import IRaptorPluginPackage from "./IRaptorPluginPackage";
 import IRaptorPluginRegisteredWindow from "./IRaptorPluginRegisteredWindow";
@@ -17,6 +18,8 @@ export default interface IRaptorPluginContext {
 
     RegisterWindowClass(info: IRaptorWindowClassInfo): IRaptorPluginRegisteredWindow;
     RegisterComponentAudio(audio: IRaptorPluginAudio): void;
+
+    CreatePluginRpcEndpoint(endpoint: string): IRaptorEndpoint;
 
     ShowMenu(menu: RaptorMenuBuilder): void;
 }

@@ -1,3 +1,4 @@
+import IRaptorConnection from "../../../IRaptorConnection";
 import IRaptorConfigurable from "../../../misc/IRaptorConfigurable";
 import RaptorUiUtil from "../../../util/RaptorUiUtil";
 import IRaptorSettingsComponent from "../IRaptorSettingsComponent";
@@ -16,12 +17,15 @@ export default abstract class RaptorBaseGenericOption<T> implements IRaptorSetti
         //Create root
         var element = RaptorUiUtil.CreateDom("div", "rsys_settings_goption_setting");
 
+        //If it's readonly, apply
+        if (this.option.SetAllowed != null && !this.option.SetAllowed())
+            element.classList.add("rsys_settings_goption_setting_readonly");
+
         //Create title
         RaptorUiUtil.CreateDom("div", "rsys_settings_goption_title", element).innerText = this.name;
 
         //Create main input
-        var input = this.BuildInput();
-        element.appendChild(input);
+        var input = this.BuildInput(element);
 
         //Bind changed event
         (element as HTMLElement as IRaptorBaseGenericOptionElement<T>)._xraptor_option_evt_handle = (payload: T) => {
@@ -47,8 +51,8 @@ export default abstract class RaptorBaseGenericOption<T> implements IRaptorSetti
         this.option.SetValue(value);
     }
 
-    protected abstract BuildInput(): HTMLElement;
-    protected abstract ValueChanged(input: HTMLElement, value: T): void;
+    protected abstract BuildInput(parent: HTMLElement): any;
+    protected abstract ValueChanged(ctx: any, value: T): void;
 
 }
 

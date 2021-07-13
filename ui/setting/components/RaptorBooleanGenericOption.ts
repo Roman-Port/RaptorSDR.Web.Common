@@ -13,8 +13,8 @@ export default class RaptorBooleanGenericOption extends RaptorBaseGenericOption<
     private trueText: string;
     private falseText: string;
 
-    protected BuildInput(): HTMLElement {
-        var container = RaptorUiUtil.CreateDom("div", "rsys_settings_goption_boolean").AddClass("rsys_settings_goption_base") as HTMLElement as IRaptorBooleanGenericOptionContainer;
+    protected BuildInput(parent: HTMLElement): HTMLElement {
+        var container = RaptorUiUtil.CreateDom("div", "rsys_settings_goption_boolean", parent).AddClass("rsys_settings_goption_base") as HTMLElement as IRaptorBooleanGenericOptionContainer;
         container._xraptor_boolean_option_true = this.HelperCreateBox(container, true, this.trueText);
         container._xraptor_boolean_option_false = this.HelperCreateBox(container, false, this.falseText);
         return container;

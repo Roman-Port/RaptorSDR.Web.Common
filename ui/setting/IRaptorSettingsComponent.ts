@@ -1,6 +1,6 @@
 export default interface IRaptorSettingsComponent {
 
-    Build(): HTMLElement;
-    Destroy(element: HTMLElement): void;
+    Build(): any;
+    Destroy(ctx: any): void;
 
 }
